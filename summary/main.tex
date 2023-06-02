@@ -1,7 +1,11 @@
-\documentclass[12pt, a4paper, oneside]{ctexart}%文档类型
+\documentclass[12pt, a4paper]{ctexart}%文档类型
 \usepackage{amsmath, amsthm, amssymb, graphicx, geometry}%数学公式，图形
 \usepackage[bookmarks=true, colorlinks, citecolor=blue, linkcolor=black]{hyperref}%超链接
 \usepackage[european]{circuitikz}%电路图
+\usepackage{steinmetz}%用于表示幅角
+\usepackage{multirow}
+\usepackage{tikz}
+
 
 \date{}
 \linespread{1.5}
@@ -12,9 +16,10 @@
 \begin{document}
 \maketitle
 
-期末考试临近，希望能够通过这样的形式快速高效的学会电工学的内容。
-之前使用Markdown写了一些笔记，但发现Markdown对打印不太友好，于是就想
-着用\LaTeX{}来写这个总结。
+期末考试临近，希望能够通过这样的形式快速高效的学
+会电工学的内容。之前使用Markdown写了一些笔记，但
+发现Markdown对打印不太友好，于是就想着用\LaTeX{}来
+写这个总结。
 ~\\
 \begin{flushright}
     \begin{tabular}{c}

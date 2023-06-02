@@ -1,1 +1,99 @@
 \section{交流电路}
+
+\subsection{正弦交流电路的基本概念}
+
+电流瞬时表达式：
+
+\[
+    i=I_m\sin(\omega t+\psi)
+\]
+
+其中，$I_m$为电流的最大值，$\omega$为角频率，$\psi$为初相位
+或相位角。\\
+波形图如下
+
+\begin{tikzpicture}
+    %\draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,8.1);
+    \draw[->,thick] (-0.5,0) -- (8,0) node[right] {$t$};
+    \draw[->,thick] (0,-1.5) -- (0,2.5) node[above] {$i$};
+    
+    \draw[domain=-1:7,smooth] plot(\x,{2*sin(\x r + 30)});
+
+\end{tikzpicture}
+
+
+
+\
+
+周期，频率
+
+\[
+    \omega=\frac{2\pi}{T}=2\pi f,~ f=\frac{1}{T}    
+\]
+
+最大值和有效值
+
+\[
+    U = \frac{U_m}{\sqrt{2}} ,~ 
+    E = \frac{E_m}{\sqrt{2}} ,~
+    I=\frac{I_m}{\sqrt{2}}
+\]
+
+\
+
+$(\omega t + \psi)$称为相位，或相位角，$\psi$称为初相位。
+
+任意两正弦量的相位差：$\varphi = \phi_2 - \phi_1$。
+
+\large{\textbf{相量表示法}}
+
+\normalsize
+表示正弦交流电在复平面中处于起始位置的固定矢量称为正弦交流
+电的相量。
+\underline{
+区分最大值相量和有效值相量
+}
+
+复平面的矢量可用复数表示，矢量$\overline{OP}$的表示方法如下：
+\[
+    \overline{OP}=a+jb = c(\cos \psi + j\sin \psi ) = ce^{j\psi}=c\phase{\psi}
+\]
+
+为避免符号混淆，在代表交流电的符号上加上一点，以示区别。$\dot{I},\dot{U}$
+
+\large 注意事项
+\normalsize
+\begin{enumerate}
+    \item 相量不等于正弦交流电
+    \item 只有正弦交流电才能用相量表示
+    \item 只有同频率的
+    正弦交流电才能进行相量运算
+\end{enumerate}
+
+\subsection{单一参数交流电路}
+
+\begin{center}
+    \textbf{电一参数交流电路的主要结论}
+\end{center}
+
+\begin{table}[!ht]
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|cc|c|c|c|}
+    \hline
+    \multicolumn{2}{|c|}{项目} & 电阻 & 电容 & 电感 \\ \hline
+    \multicolumn{2}{|c|}{电阻或阻抗} & $R$ & $X_C=\frac{1}{2\pi fC}$ & $X_L=2\pi fL$ \\ \hline
+    \multicolumn{1}{|c|}{\multirow{4}{*}{电压与电流的关系}} & 频率 & 相图 & 相同 & 相同 \\ \cline{2-5} 
+    \multicolumn{1}{|c|}{} & 相位 & 相同 & $u$ 滞后$i$$90^\circ$ & $u$ 超前$i$$90^\circ$ \\ \cline{2-5} 
+    \multicolumn{1}{|c|}{} & 有效值 & $U=RI$ & $U=X_CI$ & $U=X_LI$ \\ \cline{2-5} 
+    \multicolumn{1}{|c|}{} & 相量式 & $\dot{U}=R\dot{I}$ & $\dot{U}=-jX_C\dot{I}$ & $\dot{U}=jX_L\dot{I}$ \\ \hline
+    \multicolumn{1}{|c|}{\multirow{2}{*}{功率}} & 有功功率 & $P=UI=R^2I=\frac{U^2}{R}$ & 0 & 0 \\ \cline{2-5} 
+    \multicolumn{1}{|c|}{} & 无功功率 & 0 & $Q=UI=X_CI^2=\frac{U^2}{X_C}$ & $Q=UI=X_LI^2=\frac{U^2}{X_L}$ \\ \hline
+    \end{tabular}%
+    }
+\end{table}
+
+\subsection{串联和并联交流电路}
+
+\subsection{交流电路的功率和功率因数}
+
+\subsection{电路中的谐振}
