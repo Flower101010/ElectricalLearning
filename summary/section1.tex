@@ -1,0 +1,322 @@
+\section{直流电路}
+
+\subsection{基本概念}
+
+\subsubsection{作用和组成}
+
+电路的作用：能量的输送与转换(强电)，信号的处理与传输(弱电)。
+
+电路的基本组成：电源、负载、连接导线。
+
+概念：电源、负载、导线、内电路、外电路、直流电路(DC)、交流电路(AC)、
+
+\subsubsection{基本物理量}
+
+\begin{center}
+    \fbox{不随时间变化的物理量用大写字母，随时间变化的物理量用小写字母}
+\end{center}
+
+\begin{center}
+    \begin{circuitikz}
+        \draw (0,3) node[left]{$+$} 
+            to[battery1, l=$U_s$, a=$E\uparrow$] (0,0)node[left]{$-$}
+            to[short] (3,0) node[right]{$-$}
+            to[lamp] (3,3) node[right]{$+$}
+            to[short] (1.5,3) node[above]{$\overset{I}{\longrightarrow} $}
+            to[short] (0,3);
+    \end{circuitikz}
+\end{center}
+
+\begin{enumerate}
+\item 电流,电流方向是正电荷的流动方向。
+\[
+    I = \frac{Q}{t}
+\]
+\[
+    i = \frac{\mathrm{d} q}{\mathrm{d} t} 
+\]
+
+\item 电位 
+
+电场力将单位正电荷从电路某一点移至参考点所消耗的电能，也就是在移动中转化非电形态
+能量的电能称为该点的电位。
+
+\item 电压
+
+电场力将单位正电荷从电路某一点移至另一点所消耗的电能，即转化为非电形态
+能量的电能称为这两点的电压。
+
+方向：从高电位指向低电位。
+
+\item 电动势
+
+电源中的局外力（即非电场力）将单位正电荷从电源负极移至电源正极所换来的电能称为电
+源的电动势。
+
+方向：从电源负极指向电源正极，即低电位指向高电位。
+
+\item 电功率
+
+电路中单位时间所转化的电能消称为电功率，简称功率。
+
+电源产生的功率
+\[
+    P_E=EI
+\]
+电源输出的功率
+\[
+    P_s=U_sI
+\]
+负载功率
+\[
+    P_L=U_LI
+\]
+
+\item 电能
+
+在时间$t$内转化的电功率称为电能。
+
+\[
+    W=Pt
+\]
+
+\end{enumerate}
+
+\subsubsection{电路状态}
+
+电路状态主要有三种：通路‘开路和短路。
+
+\subsubsection{参考方向}
+
+\begin{center}
+    \fbox{电压与电流选取的参考方向应保持一致}
+\end{center}
+
+\subsubsection{理想电路元件}
+
+\begin{enumerate}
+    \item 理性有源元件
+    \begin{itemize}
+        \item 电压源 电压恒定
+        \item 电流源 电流恒定
+    \end{itemize}
+    \item 理想无源元件
+    \begin{itemize}
+        \item 电容
+        \[
+          C=\frac{q}{u}  \]
+          瞬时功率
+          \[
+            P=ui=Cu\frac{\mathrm{d}u}{\mathrm{d}t}\]
+          存储电场能
+          \[
+            W_e=\frac{1}{2}CU^2\]  
+        \item 电感
+        \[
+            L=\frac{\Psi}{i}\]
+          瞬时功率
+          \[
+            p=ui=Li\frac{\mathrm{d}i}{\mathrm{d}t}\]
+            存储磁场能
+            \[
+                W_m=\frac{1}{2}LI^2
+                \]
+        \item 电阻
+        \[
+            R=\frac{u}{i}
+            \]
+        \[
+            P=UI=RI^2=\frac{U^2}{R}\]
+    \end{itemize}
+\end{enumerate}
+
+\subsection{基尔霍夫定律}
+
+\subsubsection{KCL}
+
+电路上任意结点的同一瞬间电流的代数和为零。
+
+\begin{center}
+    \begin{circuitikz}
+        \draw
+        (2,1.5) 
+        to [short, i_=$i_1$, o-*] (2,0.5);
+        \draw
+        (1.14,0)
+        to [short, i_=$i_2$, o-*] (2,0.5);
+        \draw
+        (2,0.5)
+        to [short, i^=$i_3$, *-o] (2.87,0);
+    \end{circuitikz}
+\end{center}
+
+\[
+    i_1+i_2+i_3=0
+\]
+
+即
+\[
+    \sum_{k=1}^n i_k=0
+\]
+
+\subsubsection{KVL}
+
+电路中的任意一回路，沿同一方向循行，同一瞬间电压的代数和为零。即
+\[
+    \sum_{k=1}^n u_k=0
+\]
+
+
+\subsection{支路电流法}
+
+直接利用基尔霍夫定律，列方程组求解。
+
+\noindent 一般步骤：
+\begin{enumerate}
+    \item 确定支路数，选取支路电流方向
+    \item 确定结点数，列出独立的结点电流方程
+    \item 确定余下所需的方程式数，列出独立的回路电压方程
+    \item 解方程组
+\end{enumerate}
+
+\subsection{叠加定理}
+
+在含有多个有源元件的线性电路中，任何一条支路上的电压或电流等于电路中各个
+有源元件分别单独作用在该支路上时所产生的电压或电流的代数和。
+
+\large{注意事项}
+
+\normalsize
+\begin{enumerate}
+    \item 考虑某一有源元件单独作用时，其他有源元件$U_s=0,I_s=0$,即电压
+    源代之以短路，电流源代之以开路.
+    \item 注意是否与参考方向一致。
+    \item 叠加定理只适用于线性电路。
+    \item 叠加定理只适用于电流和电压，不适用于功率。
+\end{enumerate}
+
+\subsection{等效电源定理}
+
+\subsubsection{戴维宁定理}
+
+对外电路而言，任何一个线性有缘网络都可以用一个戴维宁等效电
+源来替代。（等效电压源）
+
+\begin{figure}[!ht]
+    \begin{minipage}[t]{0.5\linewidth}
+        \centering
+        \begin{circuitikz}
+            \draw
+            (0,0)
+            to [V, v=$U_s$] (0,2)
+            to [R=$R_1$] (2,2)
+            to [I, i=$I_s$] (2,0)
+            to [short] (0,0);
+            \draw
+            (2,2)
+            to [short, -o] (4,2);
+            \draw [dashed]
+            (4,2)
+            to [short, i^=$I_{SC}$, a_=$U_{OC}$] (4,0);
+            \draw
+            (4,0)
+            to [short, o-] (2,0);
+        \end{circuitikz}
+    \caption{有源二端网络}
+    \label{fig:1}
+    \end{minipage}
+    \begin{minipage}[t]{0.5\linewidth}
+        \centering
+        \begin{circuitikz}
+            \draw
+            (0,0)
+            to [V, v=$U_s$] (0,2)
+            to [R=$R_0$, -o] (4,2);
+
+            \draw [dashed]
+            (4,2)
+            to [short, i^=$I_{SC}$, a_=$U_{OC}$] (4,0);
+            \draw
+            (4,0)
+            to [short, o-] (0,0);
+        \end{circuitikz}
+        \caption{戴维宁等效电压电源}
+        \label{fig:2}
+    \end{minipage}
+\end{figure}
+
+由图易知
+\[
+    U_{es}=U_{oc}
+\]
+
+\[
+    R_{0}=\frac{U_{eS}}{I_{SC}}=\frac{U_{oc}}{I_{sc}}  
+\]
+
+\subsubsection{诺顿定理}
+
+对外电路而言，任何一个线性有缘网络都可以用一个诺顿等效电
+源来替代。（等效电流源）
+
+\begin{figure}[!ht]
+    \begin{minipage}[t]{0.5\linewidth}
+        \centering
+        \begin{circuitikz}
+            \draw
+            (0,0)
+            to [V, v=$U_s$] (0,2)
+            to [R=$R_1$] (2,2)
+            to [I, i=$I_s$] (2,0)
+            to [short] (0,0);
+            \draw
+            (2,2)
+            to [short, -o] (4,2);
+            \draw [dashed]
+            (4,2)
+            to [short, i^=$I_{SC}$, a_=$U_{OC}$] (4,0);
+            \draw
+            (4,0)
+            to [short, o-] (2,0);
+        \end{circuitikz}
+    \caption{有源二端网络}
+    \label{fig:3}
+    \end{minipage}
+    \begin{minipage}[t]{0.5\linewidth}
+        \centering
+        \begin{circuitikz}
+            \draw
+            (0,0)
+            to [V, v=$U_s$] (0,2)
+            to [short, -o] (4,2);
+
+            \draw
+            (2,2)
+            to [R, l_=$R_0$] (2,0);
+
+            \draw [dashed]
+            (4,2)
+            to [short, i^=$I_{SC}$, a_=$U_{OC}$] (4,0);
+            \draw
+            (4,0)
+            to [short, o-] (0,0);
+        \end{circuitikz}
+        \caption{戴维宁等效电压电源}
+        \label{fig:4}
+    \end{minipage}
+\end{figure}
+
+由图易知
+\[
+    I_{eS}=I_{SC}
+\]
+
+\[
+    R_{0}=\frac{U_{OC}}{I_{eC}}=\frac{U_{OC}}{I_{sc}}  
+\]
+
+戴维宁等效电源与诺顿等效电源的互换（对外等效时）
+
+\[
+    I_{eS}=\frac{U_{eS}}{R_0}  
+\]
