@@ -5,13 +5,19 @@
 \usepackage{steinmetz}%用于表示幅角
 \usepackage{multirow}
 \usepackage{tikz}
-
+\usepackage{wrapfig}
 
 \date{}
 \linespread{1.5}
 \title{电工学期末复习总结}
 \author{Flower}
 
+\newtheorem{theorem}{定理}[section]
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{example}[theorem]{例}
+\newtheorem{proposition}[theorem]{命题}
 
 \begin{document}
 \maketitle
@@ -34,6 +40,7 @@
 
 \input{section1.tex}
 \input{section2.tex}
+\input{section3.tex}
 
 \newpage
 \end{document}

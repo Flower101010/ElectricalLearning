@@ -73,7 +73,7 @@ $(\omega t + \psi)$称为相位，或相位角，$\psi$称为初相位。
 \subsection{单一参数交流电路}
 
 \begin{center}
-    \textbf{电一参数交流电路的主要结论}
+    \textbf{单一参数交流电路的主要结论}
 \end{center}
 
 \begin{table}[!ht]
@@ -94,6 +94,219 @@ $(\omega t + \psi)$称为相位，或相位角，$\psi$称为初相位。
 
 \subsection{串联和并联交流电路}
 
+\subsubsection{串联交流电路}
+
+\begin{center}
+    \begin{circuitikz}[american voltages]
+        \draw
+        (0,0) to [short, o-] (1,0)
+        to [american inductor, l=$L$] (5,0) 
+        (0,0) to [open, v^>=$u$] (0,4) 
+        to [short, o- ,i=$i$] (1,4) 
+        to [R, l=$R$] (5,4)
+        %to [L, l=$L_{\sigma}$] (5,4) 
+        %to [short] (5,3) 
+        to [capacitor, l_=$C$] (5,0);
+    \end{circuitikz}
+\end{center}
+
+电抗 $X=X_L-X_C$
+阻抗 
+\[
+    Z=R+jX
+\]
+
+显然阻抗不是相量，只是一般复数。同样可以写出四种形式：
+\[
+    Z=R+jX= \left\lvert Z \right\rvert (\cos \varphi + j\sin \varphi ) = \left\lvert Z \right\rvert \phase{\varphi} = \left\lvert Z \right\rvert e^{j\varphi}
+\]
+
+其中$\left\lvert Z \right\rvert$称为阻抗的模，
+$\varphi$称为阻抗角。有下式成立：
+\[
+    \left\lvert Z \right\rvert = \sqrt{R^2+X^2},~ \varphi = \arctan \frac{X}{R} = \arccos \frac{R}{\left\lvert Z \right\rvert} = \arcsin \frac{X}{\left\lvert Z \right\rvert}
+\]
+
+电压和电流的关系：
+
+\begin{itemize}
+    \item 有效值：$U=\left\lvert Z \right\rvert I$
+    \item 相量式：$\dot{U}=Z\dot{I}$
+    \item 相位关系：$\varphi = \psi _u - \psi _i $
+\end{itemize}
+
+\subsubsection{并联交流电路}
+
+解法有三种：
+\begin{itemize}
+    \item 先求支路电流再求总电流
+     \[\dot{I}=\sum \dot{I_i}=\sum \frac{\dot{U}}{Z_i}\]
+    \item 先求并联等效阻抗再求总电流 
+    \[\dot{I}=\frac{\dot{U}}{Z} \]
+    其中 
+    \[\frac{1}{Z}=\sum \frac{1}{Z_i}\]
+    \item 画出向量图，由几何关系求总电流
+\end{itemize}
+
+
 \subsection{交流电路的功率和功率因数}
 
+
+\begin{wrapfigure}{right}{65mm}
+    \centering
+    \begin{tikzpicture}
+        %\draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,8.1);
+        \draw[->,very thick, color=blue] (0,0) -- (4,0) node[below] {$\dot{I_Q}$};
+        \draw[->,very thick, color=blue] (0,0) -- (0,4) node[left] {$\dot{I_p}$};
+        \draw[->,thick] (0,0) -- (4,4) node[right] {$\dot{I}$};
+        \draw[densely dashed,thick] (4,0) to (4,4);
+        \draw[densely dashed,thick] (0,4) to (4,4);
+        \draw[->,thick] (4,0) to (5,0) node[right] {$\dot{U}$};
+        \draw (0.5,0) arc (0:45:0.5) node[right] {$\varphi$};
+        %\draw[domain=-1:7,smooth] plot(\x,{2*sin(\x r + 30)});
+    \end{tikzpicture}   
+\end{wrapfigure}
+当电流与电压相位不同时，则电流可分解成两个分量，一个与电压同相位，
+一个与电压相位相差$90^\circ$。前者为有功分量，后者为无功分量。如图所示.
+
+显然
+\[
+    I_P=Icos\varphi,~ I_Q=Isin\varphi
+\]
+
+有功功率，无功功率和视在功率分别为
+
+\[
+    P=UI_P=UIcos\varphi,~ Q=UI_Q=UIsin\varphi,~ S=UI
+\]
+
+其单位分别为瓦$\text{W}$，乏$\text{var}$，伏安$\text{V}\cdot \text{A}$.
+三种功率之间的关系为
+
+\[
+    S^2=P^2+Q^2
+\]
+\[
+    P=S\cos\varphi 
+\]
+\[
+    Q=S\sin\varphi 
+\]
+
+总功率与各部分功率之间的关系为
+
+\[
+    P=\sum P_i,~ Q=\sum Q_i,~ S \ne \sum S_i
+\]
+
+\textbf{在交流电路总，有用功率与视载功率的比值
+用$\lambda$来表示，称为电路的功率因数。}
+
+\[
+    \lambda = \frac{P}{S} = \cos \varphi
+\]
+功率因数过大引起的问题：
+\begin{itemize}
+    \item 降低供电设备的利用率
+    \item 增加供电设备和输电线路的功率损耗
+\end{itemize}
+并联电容提高感性电路的功率因数的电容求解方法：
+
+\begin{example}
+    有一感性负载接到交流电上频率为$f$，电压为$U$，功
+    率因数为$\lambda_L$，消耗有用功为$P$,若要将功率因数提高到$\lambda$求并联电容$C$的大小。
+    \begin{description}
+        \item[解法一] 通过无功功率的变化\\
+        未并联电容时，有功率因数为$\lambda_L$，则
+        \[
+            \varphi_L =\arccos \lambda_L
+        \]
+        \[
+        S_L = \frac{P}{\cos \lambda_L}    
+        \]
+        \[
+            Q_L = S_L\sin \varphi_L
+        \]
+        并入电容后，有功率因数为$\lambda$，则
+        \[
+            \varphi = \arccos \lambda
+        \]
+        \[
+            S = \frac{P}{\cos \lambda}
+        \]
+        \[
+            Q = S\sin \varphi
+        \]
+        减少的无功功率是由并联的电容提供的，故电容的无功功率绝对值为
+        \[
+            \left\lvert Q_C\right\rvert = \left\lvert Q - Q_L \right\rvert
+        \]
+        电容中的电流为
+        \[
+            I_C = \frac{\left\lvert Q_C\right\rvert}{U}
+        \]
+        即可计算出需要的容抗和电容
+        \[
+            X_C = \frac{U}{I_C},~ C = \frac{1}{2\pi f X_C}  
+        \]            
+        \item[解法二] 通过电流无功分量的变化\\
+        未并联电容时
+        \[
+            I_L = \frac{P}{U\cos \varphi _L}
+        \]
+        \[
+            \varphi_L = \arccos \lambda_L
+        \]
+        电流的无功分量为
+        \[
+            I_{QL} = I_L \sin \varphi_L
+        \]
+        并入电容后，有功率因数为$\lambda$，则
+        \[
+            \varphi = \arccos \lambda
+        \]
+        \[
+            I = \frac{P}{U\cos \varphi}
+        \]
+        电流的无功分量为
+        \[
+            I_Q = I \sin \varphi
+        \]
+        电容中的电流为
+        \[
+            I_C = I_{QL}-I_Q =I_{L}\sin \varphi_L - I \sin \varphi
+        \]
+        后续步骤同解法一
+        \item[解法三]直接带入公式\\
+        由上述两种解法可推导出并联电容的公式为
+
+        \[
+            C = \frac{P}{2\pi f U^2}(\tan \varphi_L - \tan \varphi)  
+        \]
+        
+    \end{description}
+\end{example}
+
 \subsection{电路中的谐振}
+使用交流电流中当电路中的电感和电容的电抗相等时，电路中的
+电流和电压的幅值达到最大值，这种现象称为谐振。\\
+品质因数$Q$值是描述谐振现象的一个重要参数。
+\[
+    Q_f = \frac{\left\lvert Q_L ~ \text{or} ~ Q_C\right\rvert }{P}
+\]
+
+\noindent 串联谐振特点：
+\begin{itemize}
+    \item $Q_L$ 与 $Q_C$ 相互补偿，$Q=0,S=P,\lambda =1$
+    \item $X_L$ 与 $X_C$ 数值相等，$X=0$,$Z=R$最小,$I=\frac{U}{R}$最大
+    \item $U_L$ 与 $U_C$ 相互抵消，$U_X=0,U=U_R$
+    \item $Q_f=\frac{1}{R}\sqrt{\frac{L}{C}}$
+\end{itemize}
+
+\noindent 并联谐振特点：
+\begin{itemize}
+    \item $Q_L$ 与 $Q_C$ 相互补偿，$Q=0,S=P,\lambda =1$
+    \item $X_L$ 与 $X_C$ 数值相等，$X=0$,$Z_{LC}=\frac{-\text{j}X_C\cdot \text{j}X_C}{\text{j}X_C- \text{j}X_C}\rightarrow \infty$,$Z=R$最大
+    \item $I_L$ 与 $I_C$ 相互抵消，$I_X=0,I=I_R$
+    \item $Q_f=\frac{1}{R}\sqrt{\frac{C}{L}}$
+\end{itemize}
