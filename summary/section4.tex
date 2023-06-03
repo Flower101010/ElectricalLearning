@@ -1,0 +1,109 @@
+\section{变压器}
+
+\subsection{磁路}
+
+常用物理量：磁通量$\varPhi $,单位韦伯(Wb);
+磁通量密度$B$,单位特斯拉(T);
+磁场强度$H$,单位安培/米(A/m);
+磁导率$\mu = \frac{B}{H}$,单位亨利/米(H/m)。
+
+\
+
+\noindent 磁性能:高导磁性;磁饱和性;磁滞性。
+
+\
+
+\noindent 磁路欧姆定律：
+\begin{equation}
+    \varPhi = \frac{F}{R_m}
+\end{equation}
+
+\noindent 其中$R_m$为磁路的磁阻。
+\[
+    R_m = R_{mc}+R_{m0}=\frac{l_c}{\mu _c A_c}+\frac{l_c}{\mu _cA_c}
+\]
+$F$为磁动势，等于线圈匝数$N$乘以电流$i$，即
+\[F=NI\]
+
+\subsection{电磁铁}
+
+\subsubsection{直流电磁铁}
+
+\textbf{电路}
+
+\noindent 电流$I$只与线圈电压$U$和线圈电阻$R$有关,即
+\[I=\frac{U}{R}\]
+功耗仅有线圈电阻$R$的功耗,即
+\[P=UI=I^2R=\frac{U^2}{R}\]
+
+\textbf{吸力}
+
+衔铁吸合后$\rightarrow R_m  \downarrow \rightarrow\varPhi  \uparrow \rightarrow$吸引力$\uparrow$
+
+\subsubsection{交流电磁铁}
+
+线圈中通过交变电流，由电磁感应定律知，线圈中会产感应
+电动势。有以下关系：
+\begin{equation}
+    e = 2\pi fN\varPhi _m\sin (\omega t-90^\circ) = E_m sin (\omega t-90^\circ)
+\end{equation}
+在数值上，有效值$E$为：
+\begin{equation}
+    E = \frac{E_m}{\sqrt{2}}=\frac{2\pi Nf\varPhi _m}{\sqrt{2}} = 4.44Nf\varPhi _m 
+\end{equation}
+用相量表示为：
+\begin{equation}
+    \dot{E} = -j4.44Nf\dot{\varPhi} _m
+\end{equation}
+
+电路的功率关系与一般的交流电路相同，即
+\begin{equation}
+    \begin{aligned}
+        S &=UI \\
+        Q &=UI\sin \varphi \\
+        P &=UI\cos \varphi    
+    \end{aligned}
+\end{equation}
+
+$P$包含铜损$P_{Cu}$和铁损$P_{Fe}$，铁损又包含磁滞损
+耗$P_h$和涡流损耗$P_e$。有以下关系：
+\begin{equation}
+    \begin{aligned}
+        P_{Cu} &= RI^2 \\
+        P &= P_{Cu}+P_{Fe} \\
+        P_{Fe} &= P_h+P_e
+    \end{aligned}
+\end{equation}
+
+\begin{equation}
+    \begin{aligned}
+        \dot{I}_{L1} &= \dot{I}_{1} - \dot{I}_{2} \\
+        \dot{I}_{L2} &= \dot{I}_{2} - \dot{I}_{3} \\
+        \dot{I}_{L3} &= \dot{I}_{3} - \dot{I}_{1}
+    \end{aligned}
+\end{equation}
+
+\noindent 吸力
+
+衔铁吸合后，电磁吸力的最大值和平均值基本不变，但励磁电流
+变小。一般来说交流电磁铁的启动电流比工作电流大很多。
+
+\subsection{变压器}
+\begin{center}
+    记$k=\frac{N_1}{N_2}$,则在不考虑损耗的情况下有下列关系
+\end{center}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[!htbp]
+    \centering
+    \resizebox{0.5\textwidth}{!}{%
+    \begin{tabular}{cc}
+    \hline
+    电压变换 & $\frac{U_1}{U_2}=\frac{N_1}{N_2}=k$ \\
+    电流变换 & $\frac{I_1}{I_2}=\frac{N_2}{N_1}=\frac{1}{K}$ \\
+    阻抗变换 & $\left\lvert Z_e\right\rvert =\frac{U_1}{I_1}=k^2\left\lvert Z_L\right\rvert $ \\
+    功率传递 & $S_N=U_{N2}I_{N2}=U_{N1}I_{N1}$ \\ \hline
+    \end{tabular}%
+    }
+\end{table}
