@@ -1,0 +1,156 @@
+\section{电动机}
+\subsection{三相异步电机的工作原理}
+
+\begin{enumerate}
+    \item 旋转磁场
+    \begin{enumerate}
+        \item 旋转磁场的产生\\
+        旋转磁场是由三相交流电通过三相绕组,或多相电流通过多相绕组产生的。
+        \item 旋转磁场的转速\\
+        磁场的转速被称为同步速度，记作$n_0$,有下式
+        \begin{equation}
+            n_0=\frac{60f}{p}
+        \end{equation}
+        \item 旋转磁场的转向\\
+        旋转磁场的转向与电流的相序相同，电流的相序决定了旋转磁场的转向。若
+        要调转转向，只需调换任意两相电流即可。
+    \end{enumerate}
+    \item 电磁转矩
+    \begin{enumerate}
+        \item 电磁转矩的产生 \\
+        电磁转矩是由旋转磁场与转子电流的有功分量之间的相互作用产生的。转子转
+        速记为$n$,定义转差率$s$为
+        \begin{equation}
+            s=\frac{n_0-n}{n_0}
+        \end{equation}
+        \item 电磁转矩的大小 \\
+        电磁转矩的大小与旋转磁场磁通量的最大值以及转子电流的有功分量成正比。即
+        \begin{equation}
+            T\propto\varPhi_{max}I_{2}
+        \end{equation}
+        可以导出下式
+        \begin{equation}
+            T=K_T\frac{sR_2U_1^2}{f_1[R_2^2+(sX_2)^2]}
+        \end{equation}
+        其中$K_T$常数，$R_2$为转子电阻，$X_2$为转子静止不动的漏电抗,
+        $sX_2$为转子转动的漏电抗。
+        \item 电磁转矩的方向 \\
+        电磁转矩的方向与旋转磁场方向相同。
+    \end{enumerate}
+    \item 转矩平衡 \\
+    记电磁转矩，空载转矩，负载转矩，输出转矩分别为$T,T_0,T_L,T_2$。则有
+    \begin{equation}
+        T_2=T-T_0
+    \end{equation}
+    转矩平衡方程
+    \begin{equation}
+        T_2=T_L,\text{即} T=T_0+T_L
+    \end{equation}
+    \item 功率传递
+    输出功率
+    \begin{equation}
+        P_2=T_2\omega=\frac{2\pi}{60}T_2n
+    \end{equation}
+    输入功率
+    \begin{equation}
+        P=\sqrt{3}U_{1L}I_{1L}\lambda=3U_{1P}I_{1P}\lambda
+    \end{equation}
+\end{enumerate}
+
+\subsection{三相异步电机的基本结构}
+
+\begin{enumerate}
+    \item 定子
+    \begin{enumerate}
+        \item 定子铁心\\
+        定子铁心是由硅钢片叠压而成的，用于减小铁心的磁滞损耗和涡流损耗。
+        \item 定子绕组\\
+        定子绕组是由若干根绕组线并联而成的，绕组线的截面积越大，电阻越小，电流
+        越大，定子铜耗越小。
+    \end{enumerate}
+    \item 转子
+    \begin{enumerate}
+        \item 转子铁心\\
+        转子铁心是由硅钢片叠压而成的，用于减小铁心的磁滞损耗和涡流损耗。
+        \item 转子绕组\\
+        转子绕组是由若干根绕组线串联而成的，绕组线的截面积越大，电阻越小，电流
+        越大，转子铜耗越小。
+    \end{enumerate}
+    \item 端盖\\
+    端盖是用于固定定子绕组和转子绕组的。
+    \item 机座\\
+    机座是用于固定定子和转子的。
+\end{enumerate}
+
+\subsection{三相异步电机的铭牌数据}
+
+\begin{enumerate}
+    \item 型号 （会认磁极数）
+    \item 额定功率 $P_N$
+    \item 额定电压 $U_N$
+    \item 额定电流 $I_N$
+    \item 额定转速 $n_N$
+    \item 额定频率 $f_N$
+    \item 额定功率因数 $\lambda_N$
+    \item 绝缘等级
+\end{enumerate}
+
+\subsection{三相异步电机的机械特性}
+
+\begin{enumerate}
+    \item 固有特性
+    \begin{enumerate}
+        \item 额定状态 \\
+        额定状态是指电机在额定电压，额定频率，额定转速，额定功率下
+        的工作状态
+        \begin{equation}
+            T_N=\frac{P_N}{\omega_N}=\frac{60}{2\pi}\frac{P_N}{n_N}
+        \end{equation}
+        \item 临界状态
+        电动机的电磁转矩等于最大值时的状态。
+        
+        临界转差率 $s_{M}$
+        \begin{equation}
+            s_{M}=\frac{R_2}{X_2}
+        \end{equation}
+        最大转矩
+        \begin{equation}
+            T_{M}=K_T\frac{U_1^2}{2f_1X_2}
+        \end{equation}
+        \item 启动状态
+        电动机在启动时,还未转动的状态。
+        区分过载倍数$K_M$,启动转矩倍数$K_S$，启动电流倍数$K_C$。
+
+        能否启动的判断:起动转矩大于负载转矩；起动电流小于允许最大电流。
+
+    \end{enumerate}
+    \item 人为特性 (在书上看)
+    \begin{enumerate}
+        \item 定子电压降低人为特性
+        \item 转子电阻增加人为特性
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{三相异步电机的启动方法}
+
+\begin{enumerate}
+    \item 直接启动
+    \item 降压启动
+    \begin{enumerate}
+        \item 自耦变压器降压启动\\
+        $K_A$w为自耦变压器的变压比，启动电流减小$K_A$倍；
+        从电源取用的电流和启动转矩减小$K_A^2$倍。
+        \item 星形-三角形降压启动\\
+        起动电流、电源电流和起动转矩只有直接启动的$1/3$。
+    \end{enumerate}
+    \item 软启动
+\end{enumerate}
+
+\subsection{三相异步电机的调速}
+
+\begin{enumerate}
+    \item 变频调速
+    \item 变极数调速
+    \item 变压调速
+    \item 转子电路串联电阻调速
+\end{enumerate}
