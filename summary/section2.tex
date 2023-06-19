@@ -47,10 +47,10 @@ $(\omega t + \psi)$称为相位，或相位角，$\psi$称为初相位。
 
 \large{\textbf{相量表示法}}
 
-\begin{theorem}
+\begin{definition}
     表示正弦交流电在复平面中处于起始位置
 的固定矢量称为正弦交流电的相量。
-\end{theorem}
+\end{definition}
 
 \underline{
 区分最大值相量和有效值相量
@@ -154,8 +154,8 @@ $\varphi$称为阻抗角。有下式成立：
 \subsection{交流电路的功率和功率因数}
 
 
-\begin{wrapfigure}{right}{65mm}
-    \centering
+\begin{wrapfigure}{right}{70mm}
+    %\centering
     \begin{tikzpicture}
         %\draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,8.1);
         \draw[->,very thick, color=blue] (0,0) -- (4,0) node[below] {$\dot{I_Q}$};
@@ -177,9 +177,12 @@ $\varphi$称为阻抗角。有下式成立：
 \]
 
 有功功率，无功功率和视在功率分别为
-
 \[
-    P=UI_P=UIcos\varphi,~ Q=UI_Q=UIsin\varphi,~ S=UI
+\begin{array}{l}
+    P=UI_P=UIcos\varphi\\
+    Q=UI_Q=UIsin\varphi\\
+    $S=UI$
+\end{array}
 \]
 
 其单位分别为瓦$\text{W}$，乏$\text{var}$，伏安$\text{V}\cdot \text{A}$.
@@ -224,7 +227,7 @@ $\varphi$称为阻抗角。有下式成立：
             \varphi_L =\arccos \lambda_L
         \]
         \[
-        S_L = \frac{P}{\cos \lambda_L}    
+        S_L = \frac{P}{\cos \varphi_L}    
         \]
         \[
             Q_L = S_L\sin \varphi_L
@@ -234,7 +237,7 @@ $\varphi$称为阻抗角。有下式成立：
             \varphi = \arccos \lambda
         \]
         \[
-            S = \frac{P}{\cos \lambda}
+            S = \frac{P}{\cos \varphi}
         \]
         \[
             Q = S\sin \varphi
